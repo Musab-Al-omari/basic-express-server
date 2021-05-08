@@ -1,8 +1,12 @@
 module.exports = (request, response, next) => {
-    console.log(request.query.name);
-    if (request.query.name==='') {
-        next('erorr')
-    }else{
-        next()
+  if (request.query) {
+    let checked = request.query.name;
+    if (checked) {
+      next()
+    } else {
+      next('error')
     }
+  } else {
+    next('error')
+  }
 }

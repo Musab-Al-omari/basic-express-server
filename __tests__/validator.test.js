@@ -6,18 +6,17 @@ const serverRequest = superTest(server.app)
 
 
 describe('validate Server', () => {
-    it('500 if no name in the query string', async () => {
-        let response = await serverRequest.get('/person');
+  it('500 if no name in the query string', async() => {
+    let response = await serverRequest.get('/person');
 
-        expect(response.status).toEqual(500);
+    expect(response.status).toEqual(500);
 
-    });
+  });
 
-    it('200 if the name is in the query string', async () => {
-        let response = await serverRequest.get('/person?name=musab');
+  it('200 if the name is in the query string', async() => {
+    let response = await serverRequest.get('/person?name=musab');
+    expect(response.status).toEqual(200);
 
-        expect(response.status).toEqual(200);
 
-
-    })
+  })
 })
